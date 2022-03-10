@@ -8,6 +8,9 @@ Read the comments to see which values to change
 
 Python must be in PATH for this to work
 to check if it is, type `python` into console, and if it opens python shell, it will work.
+
+This config works by default, and is only for appearence. The only values that should be changed are width, height, and hasFrame.
+The rest are optional, and don't need tweaking.
 */
 
 const { BrowserWindow, Menu } = require('electron');
