@@ -7,7 +7,7 @@ Use this repository as a template, and create a repository
 ## Configuration File
 To edit the configuration file, take a look at `javascript/index.js`
 
-Check all the comments in the file to see where you can customize this
+Check all the comments in the file to see where you can customize everything.
 
 ## Running the app
 
