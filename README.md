@@ -22,7 +22,7 @@ Check all the comments in the file to see where you can customize this
 ```
 
 ## How it works
-This application uses [Electron](https://electronjs.org) as frontend to spawn a window, and uses a python [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+This application uses [Electron](https://electronjs.org) as frontend to spawn a window, and uses a python [Flask](https://flask.palletsprojects.com/en/2.0.x/) application for backend.
 
 ## Build Application
 
