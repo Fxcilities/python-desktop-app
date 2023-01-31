@@ -26,28 +26,31 @@ const port = 5000; // Change this to your liking. Example: 80, 443, 5000
 const width = 1000; // Change this value to edit the width of the application
 const height = 500; // Change this value to edit the height of the application
 const hasFrame = true; // Change this value to false if you want the application to be frameless
-
+const devTools = false; // Change this to true if you want users to be able to open devtools.
 /*
 From now on values should not be changed
 */
 
-app.on('window-all-closed', function() {
-    app.quit();
+app.on('window-all-closed', function () {
+  app.quit();
 });
 
-app.on('ready', function() {
-    var python = require('child_process').spawn('python', ['../main.py', host, port]);
-    
-    var mainWindow = new BrowserWindow({
-      width: width, 
-      height: height,
-      frame: hasFrame,
-    });
-    mainWindow.loadURL(`http://${host}:${port}`);
-    mainWindow.on('closed', function() {
-      python.kill('SIGINT'); // Kill python process with keyboard inturrupt
-    });
+app.on('ready', function () {
+  var python = require('child_process').spawn('python', ['../main.py', host, port]);
 
-    python.stdout.on('data', (data) => console.log(data.toString('utf8'))); // log output to console
-    python.stderr.on('data', (data) => console.log(data.toString('utf8'))); // Log errors to console
+  var mainWindow = new BrowserWindow({
+    width: width,
+    height: height,
+    frame: hasFrame,
+    webPreferences: {
+      devTools: devTools
+    }
+  });
+  mainWindow.loadURL(`http://${host}:${port}`);
+  mainWindow.on('closed', function () {
+    python.kill('SIGINT'); // Kill python process with keyboard inturrupt
+  });
+
+  python.stdout.on('data', (data) => console.log(data.toString('utf8'))); // log output to console
+  python.stderr.on('data', (data) => console.log(data.toString('utf8'))); // Log errors to console
 })
